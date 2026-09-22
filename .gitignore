@@ -1,0 +1,20 @@
+# Java
+**/target/
+
+# React / Node
+**/node_modules/
+frontend/dist/
+
+# Generated React files copied into Spring Boot during deployment
+backend/src/main/resources/static/
+
+# Local database password and machine-specific settings
+backend/src/main/resources/application.properties
+.env
+
+# Logs and editor files
+*.log
+backend/error-log.txt
+backend/startup-log.txt
+.idea/
+.vscode/

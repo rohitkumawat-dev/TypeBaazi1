@@ -1,0 +1,7 @@
+.git
+**/node_modules
+frontend/dist
+backend/target
+backend/src/main/resources/static
+backend/src/main/resources/application.properties
+*.log
