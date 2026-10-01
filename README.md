@@ -173,6 +173,6 @@ Contributions are welcome!
 
 ### ⭐ If you enjoyed TypeBaazi, give it a star — it means a lot!
 
-**Made with ❤️ and a lot of keystrokes**
+**Made with ❤️ and a lot of coffee**
 
 </div>
