@@ -2,386 +2,176 @@
 
 # ⌨️ TypeBaazi
 
-### Multiplayer Typing Race Game built with Java & Spring Boot
+### A fun multiplayer type-racing game to play with your friends
 
-A full-stack multiplayer typing race application where two players can create or join a room, compete on the same paragraph, and compare typing speed, accuracy, and mistakes.
+[![Live Demo](https://img.shields.io/badge/Play%20Now-typebaazi.onrender.com-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://typebaazi.onrender.com)
 
-<br>
-
-[![Live Demo](https://img.shields.io/badge/Live_Demo-TypeBaazi-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://typebaazi.onrender.com)
-
-![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.1-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![Java](https://img.shields.io/badge/Java%2017-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js%2022-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Render](https://img.shields.io/badge/Deployed%20on%20Render-46E3B7?style=flat-square&logo=render&logoColor=white)
 
 </div>
 
 ---
 
-## 📌 About the Project
+## 📖 About
 
-**TypeBaazi** is a Java-based multiplayer typing race application developed as a microproject for the **Java Programming** subject.
+**TypeBaazi** is a type-racing game built for playing with friends. Join a race, type the paragraph as fast and as accurately as you can, and see who finishes first.
 
-The project demonstrates the practical use of Java in building a complete backend system using **Spring Boot**, along with database integration, authentication, REST APIs, game logic, and frontend communication.
+🔗 **Live:** [https://typebaazi.onrender.com](https://typebaazi.onrender.com)
 
-Two users can create or join a private room, participate in a timed typing race, and receive results including:
-
-- Typing speed in WPM
-- Accuracy percentage
-- Number of mistakes
-- Winner of the race
-- Previous match history
-- Personal best typing speed
-
-The frontend is built using React, while the main application logic and backend services are implemented in Java.
+> ⏳ The app is hosted on Render. If it has been idle, the first load may take a short while to wake up.
 
 ---
 
-## 🎯 Project Objective
-
-The objective of TypeBaazi is to develop an interactive Java application that demonstrates concepts such as:
-
-- Object-Oriented Programming
-- Java classes and records
-- Collections
-- REST API development
-- Exception handling
-- Database connectivity
-- Authentication and authorization
-- Backend business logic
-- Concurrent room management
-- Full-stack application development
-
----
-
-## ✨ Features
-
-### 👤 User Authentication
-
-- User registration
-- User login
-- Secure password storage
-- Session-based authentication
-- Protected application endpoints
-- CSRF protection using Spring Security
-
-### 🎮 Multiplayer Rooms
-
-- Create a private typing room
-- Automatic 6-character room code generation
-- Join using room code
-- Maximum of two players per room
-- Room creator acts as host
-- Guest player ready system
-- Host-controlled game start
-
-### ⏱️ Custom Race Duration
-
-The room creator can select:
-
-- 30 seconds
-- 60 seconds
-- 90 seconds
-- 120 seconds
-
-### 📝 Typing Race
-
-- Both players receive the same paragraph
-- Automatic 3-second countdown
-- Random paragraph selection
-- Server-controlled race timing
-- Typing progress sent to the backend during the race
-- Duplicate and outdated typing updates are prevented using sequence numbers
-
-### 📊 Performance Calculation
-
-After the race, TypeBaazi calculates:
-
-- Words Per Minute (WPM)
-- Accuracy
-- Number of mistakes
-- Correctly typed characters
-- Winner of the race
-
-### 🏆 Race Results
-
-The result screen displays:
-
-- Winner
-- Player WPM
-- Opponent WPM
-- Accuracy
-- Mistakes
-- Race duration
-
-### 📜 Match History
-
-Logged-in users can view:
-
-- Total races played
-- Total wins
-- Best WPM
-- Previous opponents
-- Match outcome
-- Accuracy
-- Mistakes
-- Match date and time
-
-### 🔊 User Experience
-
-- Countdown sounds
-- Game result sounds
-- Responsive user interface
-- Modern typing-race design
-- Browser-based gameplay
-
----
-
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Programming Language | Java 17 |
-| Backend Framework | Spring Boot 4.1.1 |
-| Web Layer | Spring Web MVC |
-| Security | Spring Security |
-| Database ORM | Spring Data JPA / Hibernate |
-| Database | PostgreSQL |
-| Backend Build Tool | Maven |
-| Frontend | React |
-| Frontend Build Tool | Vite |
-| Styling | Tailwind CSS / CSS |
-| Icons | Lucide React |
-| Containerization | Docker |
-| Deployment | Render |
-| Version Control | Git & GitHub |
+| ----- | ---------- |
+| **Frontend** | React (built with `npm run build`, output in `frontend/dist`) |
+| **Backend** | Spring Boot (Java 17), built with Maven / Maven Wrapper |
+| **Packaging** | The React build is bundled into Spring Boot's `static` resources and served as a single JAR |
+| **Containerization** | Docker (multi-stage build) |
+| **Hosting** | Render |
+| **Build tooling** | Node.js 22, Maven 3.9, Eclipse Temurin JDK/JRE 17 |
+
+### How it fits together
+
+The project ships as **one deployable unit**. The React frontend is compiled first, and its `dist/` output is copied into `backend/src/main/resources/static/`. Spring Boot then packages everything into a single JAR, so the same server on port `8080` serves both the website and the backend.
+
+```
+React (frontend/)  ──npm run build──▶  dist/
+                                         │
+                                         ▼ copied into
+Spring Boot (backend/)  ◀── src/main/resources/static/
+         │
+         ▼ mvn package
+     app.jar  ──▶  http://localhost:8080
+```
 
 ---
 
-## 🏗️ System Architecture
+## 📁 Project Structure
 
-
-                       ┌──────────────────────┐
-                       │        User          │
-                       │    Web Browser       │
-                       └──────────┬───────────┘
-                                  │
-                                  ▼
-                       ┌──────────────────────┐
-                       │    React Frontend    │
-                       │    React + Vite      │
-                       └──────────┬───────────┘
-                                  │
-                              REST API
-                                  │
-                                  ▼
-                ┌────────────────────────────────┐
-                │      Java Spring Boot API      │
-                │                                │
-                │  • Authentication              │
-                │  • Room Management             │
-                │  • Race Logic                  │
-                │  • WPM / Accuracy Calculation  │
-                │  • Match History               │
-                └───────────────┬────────────────┘
-                                │
-                          Spring Data JPA
-                                │
-                                ▼
-                       ┌──────────────────────┐
-                       │     PostgreSQL       │
-                       │      Database        │
-                       └──────────────────────┘
-              
-
-backend/src/main/java/com/typebaazi/
-│
-├── BackendApplication.java
-├── AuthController.java
-├── RoomController.java
-├── HistoryController.java
-├── RaceScoring.java
-├── RaceResult.java
-├── RaceResultRepository.java
-├── AppUser.java
-├── UserRepository.java
-├── SecurityConfig.java
-├── Paragraphs.java
-└── ApiErrors.java
-
-Project Structure :
-
+```
 TypeBaazi1/
-│
-├── backend/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/
-│   │   │   │   └── com/
-│   │   │   │       └── typebaazi/
-│   │   │   │
-│   │   │   └── resources/
-│   │   │
-│   │   └── test/
-│   │
-│   ├── pom.xml
-│   ├── mvnw
-│   └── mvnw.cmd
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── Lobby.jsx
-│   │   ├── RaceResults.jsx
-│   │   ├── api.js
-│   │   ├── sound.js
-│   │   └── index.css
-│   │
-│   ├── package.json
-│   └── vite.config.js
-│
-├── Dockerfile
-├── render-build.sh
-├── BUILD-AND-RUN.bat
-└── README.md
+├── backend/                               # Spring Boot application (Java 17, Maven)
+├── frontend/                              # React application
+├── backup-paragraph-results-10448-10408/  # Backup of paragraph results
+├── backup-paragraph-results-9951-15050/   # Backup of paragraph results
+├── BUILD-AND-RUN.bat                      # One-click build + run script for Windows
+├── Dockerfile                             # Multi-stage build (frontend → backend → runtime)
+├── render-build.sh                        # Build script used for Render deployment
+├── .dockerignore
+└── .gitignore
+```
 
-Prerequisites
-Make sure the following are installed:
-- Java 17
-- Maven
-- PostgreSQL
-- Node.js
-- npm
-- Git
+---
 
-1. Clone the Repository
-git clone https://github.com/rohitkumawat-dev/TypeBaazi1.git
-cd TypeBaazi1
+## ✅ Prerequisites
 
-2. Configure PostgreSQL
-Create a PostgreSQL database:
-CREATE DATABASE typebaazi;
+| Tool | Version | Needed for |
+| ---- | ------- | ---------- |
+| Node.js + npm | 22 (recommended) | Building the frontend |
+| JDK | 17 | Running / building the backend |
+| Maven | 3.9+ (or the bundled `mvnw`) | Building the backend |
+| Docker | Any recent version | Optional, for container runs |
 
-Configure the database connection in your local Spring Boot configuration:
-spring.datasource.url=jdbc:postgresql://localhost:5432/typebaazi
-spring.datasource.username=postgres
-spring.datasource.password=YOUR_PASSWORD
+---
 
-spring.jpa.hibernate.ddl-auto=update
+## 🚀 Getting Started
 
-Do not commit your actual PostgreSQL password to GitHub.
+### Option 1: Windows one-click script
 
-3. Start the Backend
-cd backend
+From the project root:
 
-On Windows:
-mvnw.cmd spring-boot:run
-
-Or:
-mvn spring-boot:run
-
-The backend normally runs at:
-http://localhost:8080
-
-4. Start the Frontend
-Open another terminal:
+```bat
 cd frontend
 npm install
-npm run dev
+cd ..
+BUILD-AND-RUN.bat
+```
 
-The frontend normally runs at:
-http://localhost:5173
+The script builds the React app, copies it into the backend's static folder, and starts Spring Boot with the Maven Wrapper. Wait for the `Started BackendApplication` message, then open **http://localhost:8080**.
 
-🐳 Docker Deployment
-The project uses a multi-stage Docker build.
-The Dockerfile:
-1. Builds the React frontend using Node.js
-2. Copies the generated frontend into Spring Boot static resources
-3. Builds the Java backend using Maven
-4. Packages the complete application as a JAR
-5. Runs the application using Java 17 JRE
-Build the Docker image:
+> The script looks for JDK 17 under `%LOCALAPPDATA%\Programs\Eclipse Adoptium\` and otherwise uses your `JAVA_HOME`. Make sure Java 17 is installed.
+
+### Option 2: Manual build (any OS)
+
+```bash
+# 1. Build the frontend
+cd frontend
+npm ci            # or: npm install
+npm run build
+
+# 2. Copy the build into Spring Boot's static folder
+cd ../backend
+rm -rf src/main/resources/static
+mkdir -p src/main/resources/static
+cp -R ../frontend/dist/. src/main/resources/static/
+
+# 3. Run the backend
+./mvnw spring-boot:run
+```
+
+Then open **http://localhost:8080**.
+
+### Option 3: Docker
+
+```bash
 docker build -t typebaazi .
-
-Run it:
 docker run -p 8080:8080 typebaazi
+```
 
-☁️ Production Deployment
-TypeBaazi is deployed using Render.
-The production Spring Boot configuration uses environment variables:
-DATABASE_URL
-DATABASE_USERNAME
-DATABASE_PASSWORD
-PORT
+The container reads the `PORT` environment variable and falls back to `8080`:
 
-This helps keep sensitive database credentials outside the source code.
+```bash
+docker run -e PORT=9090 -p 9090:9090 typebaazi
+```
 
-🔐 Security
-The project uses Spring Security for authentication and application protection.
-Implemented security features include:
-- Secure password hashing
-- Session-based authentication
-- CSRF protection
-- Authentication-required API endpoints
-- Secure production cookies
-- Server-side input validation
-- Database-backed user accounts
-Passwords are not stored in plain text.
+---
 
-📚 Java Concepts Demonstrated
-This project demonstrates several important Java concepts:
-- Classes and Objects
-- Object-Oriented Programming
-- Encapsulation
-- Java Records
-- Collections
-- Lists
-- Maps
-- ConcurrentHashMap
-- UUID generation
-- Exception handling
-- REST Controllers
-- Dependency Injection
-- Interfaces
-- Spring Data repositories
-- JPA entities
-- Scheduled tasks
-- Authentication
-- Server-side validation
+## ☁️ Deployment (Render)
 
-🎓 Academic Purpose
-TypeBaazi was developed as a Java Programming Microproject.
-Instead of creating only a console-based program, this project demonstrates how Java can be used to build a modern full-stack web application.
-The Java Spring Boot backend handles:
-- User authentication
-- Application logic
-- Multiplayer room management
-- Race management
-- Race timing
-- Typing progress
-- WPM and accuracy calculation
-- Result processing
-- Match history
-- PostgreSQL database operations
-- Security
+TypeBaazi is live on Render. Two build paths are included in the repo:
 
-🔮 Future Improvements
-Possible future improvements include:
-- Global leaderboard
-- Player profile statistics
-- More typing categories
-- Difficulty levels
-- Custom avatars
-- Friends system
-- Public matchmaking
-- Tournament mode
-- Mobile optimization
-- Detailed performance analytics
+- **Docker:** the `Dockerfile` runs a three-stage build:
+  1. `node:22-alpine` builds the React frontend.
+  2. `maven:3.9.9-eclipse-temurin-17` copies the frontend build into Spring Boot's static folder and packages the JAR (tests skipped).
+  3. `eclipse-temurin:17-jre` runs the final JAR with `--server.port=${PORT:-8080}`.
+- **Script:** `render-build.sh` does the same build steps without Docker (builds the frontend, copies `dist/` into `backend/src/main/resources/static/`, then runs `mvn clean package -DskipTests`, using `mvnw` if present).
 
-👨‍💻 Developer
+---
+
+## 🎮 How to Play
+
+1. Open the [live site](https://typebaazi.onrender.com) (or your local server).
+2. Join a race with your friends.
+3. Type the paragraph shown as quickly and accurately as you can.
+4. Check the results to see who won.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome. Feel free to fork the repo and open a pull request.
+
+---
+
+## 👤 Author
+
+**Rohit Kumawat**
+
+- GitHub: [@rohitkumawat-dev](https://github.com/rohitkumawat-dev)
+
+---
+
 <div align="center">
 
-Rohit Kumawat
-B.Tech Student
-Java Programming Microproject
+⭐ If you enjoyed TypeBaazi, consider giving the repo a star!
+
+</div>
