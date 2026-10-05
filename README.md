@@ -161,7 +161,7 @@ Logged-in users can view:
 
 ## 🏗️ System Architecture
 
-```text
+
                        ┌──────────────────────┐
                        │        User          │
                        │    Web Browser       │
@@ -193,3 +193,195 @@ Logged-in users can view:
                        │     PostgreSQL       │
                        │      Database        │
                        └──────────────────────┘
+              
+
+backend/src/main/java/com/typebaazi/
+│
+├── BackendApplication.java
+├── AuthController.java
+├── RoomController.java
+├── HistoryController.java
+├── RaceScoring.java
+├── RaceResult.java
+├── RaceResultRepository.java
+├── AppUser.java
+├── UserRepository.java
+├── SecurityConfig.java
+├── Paragraphs.java
+└── ApiErrors.java
+
+Project Structure :
+
+TypeBaazi1/
+│
+├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── typebaazi/
+│   │   │   │
+│   │   │   └── resources/
+│   │   │
+│   │   └── test/
+│   │
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── Lobby.jsx
+│   │   ├── RaceResults.jsx
+│   │   ├── api.js
+│   │   ├── sound.js
+│   │   └── index.css
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── Dockerfile
+├── render-build.sh
+├── BUILD-AND-RUN.bat
+└── README.md
+
+Prerequisites
+Make sure the following are installed:
+- Java 17
+- Maven
+- PostgreSQL
+- Node.js
+- npm
+- Git
+
+1. Clone the Repository
+git clone https://github.com/rohitkumawat-dev/TypeBaazi1.git
+cd TypeBaazi1
+
+2. Configure PostgreSQL
+Create a PostgreSQL database:
+CREATE DATABASE typebaazi;
+
+Configure the database connection in your local Spring Boot configuration:
+spring.datasource.url=jdbc:postgresql://localhost:5432/typebaazi
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_PASSWORD
+
+spring.jpa.hibernate.ddl-auto=update
+
+Do not commit your actual PostgreSQL password to GitHub.
+
+3. Start the Backend
+cd backend
+
+On Windows:
+mvnw.cmd spring-boot:run
+
+Or:
+mvn spring-boot:run
+
+The backend normally runs at:
+http://localhost:8080
+
+4. Start the Frontend
+Open another terminal:
+cd frontend
+npm install
+npm run dev
+
+The frontend normally runs at:
+http://localhost:5173
+
+🐳 Docker Deployment
+The project uses a multi-stage Docker build.
+The Dockerfile:
+1. Builds the React frontend using Node.js
+2. Copies the generated frontend into Spring Boot static resources
+3. Builds the Java backend using Maven
+4. Packages the complete application as a JAR
+5. Runs the application using Java 17 JRE
+Build the Docker image:
+docker build -t typebaazi .
+
+Run it:
+docker run -p 8080:8080 typebaazi
+
+☁️ Production Deployment
+TypeBaazi is deployed using Render.
+The production Spring Boot configuration uses environment variables:
+DATABASE_URL
+DATABASE_USERNAME
+DATABASE_PASSWORD
+PORT
+
+This helps keep sensitive database credentials outside the source code.
+
+🔐 Security
+The project uses Spring Security for authentication and application protection.
+Implemented security features include:
+- Secure password hashing
+- Session-based authentication
+- CSRF protection
+- Authentication-required API endpoints
+- Secure production cookies
+- Server-side input validation
+- Database-backed user accounts
+Passwords are not stored in plain text.
+
+📚 Java Concepts Demonstrated
+This project demonstrates several important Java concepts:
+- Classes and Objects
+- Object-Oriented Programming
+- Encapsulation
+- Java Records
+- Collections
+- Lists
+- Maps
+- ConcurrentHashMap
+- UUID generation
+- Exception handling
+- REST Controllers
+- Dependency Injection
+- Interfaces
+- Spring Data repositories
+- JPA entities
+- Scheduled tasks
+- Authentication
+- Server-side validation
+
+🎓 Academic Purpose
+TypeBaazi was developed as a Java Programming Microproject.
+Instead of creating only a console-based program, this project demonstrates how Java can be used to build a modern full-stack web application.
+The Java Spring Boot backend handles:
+- User authentication
+- Application logic
+- Multiplayer room management
+- Race management
+- Race timing
+- Typing progress
+- WPM and accuracy calculation
+- Result processing
+- Match history
+- PostgreSQL database operations
+- Security
+
+🔮 Future Improvements
+Possible future improvements include:
+- Global leaderboard
+- Player profile statistics
+- More typing categories
+- Difficulty levels
+- Custom avatars
+- Friends system
+- Public matchmaking
+- Tournament mode
+- Mobile optimization
+- Detailed performance analytics
+
+👨‍💻 Developer
+<div align="center">
+
+Rohit Kumawat
+B.Tech Student
+Java Programming Microproject
