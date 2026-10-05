@@ -1,178 +1,195 @@
 <div align="center">
 
-# ⌨️ TypeBaazi 🏁
+# ⌨️ TypeBaazi
 
-### Race your friends. Type faster. Win bragging rights.
+### Multiplayer Typing Race Game built with Java & Spring Boot
 
-A real-time **multiplayer type-racing game** — jump into a room, share the code, and see who has the fastest fingers.
+A full-stack multiplayer typing race application where two players can create or join a room, compete on the same paragraph, and compare typing speed, accuracy, and mistakes.
 
-<br/>
+<br>
 
-[![Play Now](https://img.shields.io/badge/▶_PLAY_NOW-typebaazi.onrender.com-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://typebaazi.onrender.com)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-TypeBaazi-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://typebaazi.onrender.com)
 
-<br/>
-
-![GitHub Repo stars](https://img.shields.io/github/stars/rohitkumawat-dev/TypeBaazi1?style=for-the-badge&logo=github&color=yellow)
-![GitHub forks](https://img.shields.io/github/forks/rohitkumawat-dev/TypeBaazi1?style=for-the-badge&logo=github&color=blue)
-![GitHub last commit](https://img.shields.io/github/last-commit/rohitkumawat-dev/TypeBaazi1?style=for-the-badge&logo=git&logoColor=white&color=orange)
-![Status](https://img.shields.io/badge/status-live-brightgreen?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.1-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 
 </div>
 
 ---
 
-## 📖 About
+## 📌 About the Project
 
-**TypeBaazi** (*baazi* = "game / bet" in Hindi) is a fast-paced multiplayer typing game. Everyone in a room gets the same paragraph, the race starts together, and your progress is shown live against your opponents. Finish first with the best accuracy to take the crown.
+**TypeBaazi** is a Java-based multiplayer typing race application developed as a microproject for the **Java Programming** subject.
 
-Perfect for a quick break with friends, or for sharpening your typing speed while having fun.
+The project demonstrates the practical use of Java in building a complete backend system using **Spring Boot**, along with database integration, authentication, REST APIs, game logic, and frontend communication.
+
+Two users can create or join a private room, participate in a timed typing race, and receive results including:
+
+- Typing speed in WPM
+- Accuracy percentage
+- Number of mistakes
+- Winner of the race
+- Previous match history
+- Personal best typing speed
+
+The frontend is built using React, while the main application logic and backend services are implemented in Java.
+
+---
+
+## 🎯 Project Objective
+
+The objective of TypeBaazi is to develop an interactive Java application that demonstrates concepts such as:
+
+- Object-Oriented Programming
+- Java classes and records
+- Collections
+- REST API development
+- Exception handling
+- Database connectivity
+- Authentication and authorization
+- Backend business logic
+- Concurrent room management
+- Full-stack application development
+
+---
 
 ## ✨ Features
 
-- 🏎️ **Real-time multiplayer races** — see opponents' progress as they type
-- 👥 **Play with friends** — create a room and challenge them
-- 📝 **Paragraph-based races** — type real passages, not just random words
-- ⚡ **Live WPM & accuracy tracking**
-- 🐳 **Docker-ready** and one-click deployable on Render
-- 🌐 **Runs in the browser** — nothing to install to play
+### 👤 User Authentication
 
-## 🎮 How to Play
+- User registration
+- User login
+- Secure password storage
+- Session-based authentication
+- Protected application endpoints
+- CSRF protection using Spring Security
 
-1. Open **[typebaazi.onrender.com](https://typebaazi.onrender.com)**
-2. Enter your name and create or join a race
-3. Wait for the countdown
-4. Type the paragraph as fast and accurately as you can
-5. Cross the finish line first 🏁
+### 🎮 Multiplayer Rooms
 
-> ⏳ **Heads up:** the app is hosted on Render's free tier, so the first load after a period of inactivity can take up to a minute while the server wakes up.
+- Create a private typing room
+- Automatic 6-character room code generation
+- Join using room code
+- Maximum of two players per room
+- Room creator acts as host
+- Guest player ready system
+- Host-controlled game start
 
-## 🛠️ Tech Stack
+### ⏱️ Custom Race Duration
 
-<div align="center">
+The room creator can select:
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+- 30 seconds
+- 60 seconds
+- 90 seconds
+- 120 seconds
 
-</div>
+### 📝 Typing Race
 
-| Layer | Technology |
-| ----- | ---------- |
-| Frontend | React + Vite |
-| Backend | Node.js + Express |
-| Real-time | Socket.IO (WebSockets) |
-| Containerization | Docker |
-| Hosting | Render |
+- Both players receive the same paragraph
+- Automatic 3-second countdown
+- Random paragraph selection
+- Server-controlled race timing
+- Typing progress sent to the backend during the race
+- Duplicate and outdated typing updates are prevented using sequence numbers
 
-## 📁 Project Structure
+### 📊 Performance Calculation
 
-```
-TypeBaazi1/
-├── backend/                  # Server — game rooms & real-time logic
-├── frontend/                 # Client — game UI
-├── Dockerfile                # Container build
-├── render-build.sh           # Render build script
-├── BUILD-AND-RUN.bat         # One-click build & run (Windows)
-├── .dockerignore
-└── .gitignore
-```
+After the race, TypeBaazi calculates:
 
-## 🚀 Getting Started
+- Words Per Minute (WPM)
+- Accuracy
+- Number of mistakes
+- Correctly typed characters
+- Winner of the race
 
-### Prerequisites
+### 🏆 Race Results
 
-- [Node.js](https://nodejs.org/) (v18 or later recommended)
-- [Git](https://git-scm.com/)
-- [Docker](https://www.docker.com/) *(optional)*
+The result screen displays:
 
-### 1️⃣ Clone the repository
+- Winner
+- Player WPM
+- Opponent WPM
+- Accuracy
+- Mistakes
+- Race duration
 
-```bash
-git clone https://github.com/rohitkumawat-dev/TypeBaazi1.git
-cd TypeBaazi1
-```
+### 📜 Match History
 
-### 2️⃣ Run locally
+Logged-in users can view:
 
-**Backend**
+- Total races played
+- Total wins
+- Best WPM
+- Previous opponents
+- Match outcome
+- Accuracy
+- Mistakes
+- Match date and time
 
-```bash
-cd backend
-npm install
-npm start
-```
+### 🔊 User Experience
 
-**Frontend** *(in a new terminal)*
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Then open the URL shown in the frontend terminal (usually `http://localhost:5173`).
-
-### 🪟 Windows shortcut
-
-Just double-click **`BUILD-AND-RUN.bat`** to build and launch everything.
-
-### 🐳 Run with Docker
-
-```bash
-docker build -t typebaazi .
-docker run -p 3000:3000 typebaazi
-```
-
-## ☁️ Deployment
-
-TypeBaazi is deployed on **[Render](https://render.com)** using the included `render-build.sh` script and `Dockerfile`.
-
-1. Push the repo to GitHub
-2. Create a new **Web Service** on Render and connect the repo
-3. Set the build command to `./render-build.sh`
-4. Deploy 🎉
-
-## 🗺️ Roadmap
-
-- [ ] 🏆 Global leaderboard
-- [ ] 👤 User accounts & stats history
-- [ ] 🎨 Custom car / avatar skins
-- [ ] 🌍 More languages and paragraph categories
-- [ ] 📱 Better mobile experience
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the project
-2. Create your branch: `git checkout -b feature/AmazingFeature`
-3. Commit your changes: `git commit -m "Add AmazingFeature"`
-4. Push to the branch: `git push origin feature/AmazingFeature`
-5. Open a Pull Request
-
-## 👨‍💻 Author
-
-<div align="center">
-
-**Rohit Kumawat**
-
-[![GitHub](https://img.shields.io/badge/GitHub-rohitkumawat--dev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rohitkumawat-dev)
-
-</div>
+- Countdown sounds
+- Game result sounds
+- Responsive user interface
+- Modern typing-race design
+- Browser-based gameplay
 
 ---
 
-<div align="center">
+## 🛠️ Technology Stack
 
-### ⭐ If you enjoyed TypeBaazi, give it a star — it means a lot!
+| Layer | Technology |
+|---|---|
+| Programming Language | Java 17 |
+| Backend Framework | Spring Boot 4.1.1 |
+| Web Layer | Spring Web MVC |
+| Security | Spring Security |
+| Database ORM | Spring Data JPA / Hibernate |
+| Database | PostgreSQL |
+| Backend Build Tool | Maven |
+| Frontend | React |
+| Frontend Build Tool | Vite |
+| Styling | Tailwind CSS / CSS |
+| Icons | Lucide React |
+| Containerization | Docker |
+| Deployment | Render |
+| Version Control | Git & GitHub |
 
-**Made with ❤️ and a lot of coffee**
+---
 
-</div>
+## 🏗️ System Architecture
+
+```text
+                       ┌──────────────────────┐
+                       │        User          │
+                       │    Web Browser       │
+                       └──────────┬───────────┘
+                                  │
+                                  ▼
+                       ┌──────────────────────┐
+                       │    React Frontend    │
+                       │    React + Vite      │
+                       └──────────┬───────────┘
+                                  │
+                              REST API
+                                  │
+                                  ▼
+                ┌────────────────────────────────┐
+                │      Java Spring Boot API      │
+                │                                │
+                │  • Authentication              │
+                │  • Room Management             │
+                │  • Race Logic                  │
+                │  • WPM / Accuracy Calculation  │
+                │  • Match History               │
+                └───────────────┬────────────────┘
+                                │
+                          Spring Data JPA
+                                │
+                                ▼
+                       ┌──────────────────────┐
+                       │     PostgreSQL       │
+                       │      Database        │
+                       └──────────────────────┘
