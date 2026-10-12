@@ -104,17 +104,6 @@ After the race, TypeBaazi calculates:
 - Correctly typed characters
 - Winner of the race
 
-### 🏆 Race Results
-
-The result screen displays:
-
-- Winner
-- Player WPM
-- Opponent WPM
-- Accuracy
-- Mistakes
-- Race duration
-
 ### 📜 Match History
 
 Logged-in users can view:
@@ -128,15 +117,6 @@ Logged-in users can view:
 - Mistakes
 - Match date and time
 
-### 🔊 User Experience
-
-- Countdown sounds
-- Game result sounds
-- Responsive user interface
-- Modern typing-race design
-- Browser-based gameplay
-
----
 
 ## 🛠️ Technology Stack
 
