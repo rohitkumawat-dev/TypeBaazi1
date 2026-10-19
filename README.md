@@ -21,7 +21,7 @@ A full-stack multiplayer typing race application where two players can create or
 
 ## 📌 About the Project
 
-**TypeBaazi** is a Java-based multiplayer typing race application developed as a microproject for the **Java Programming** subject.
+**TypeBaazi** is a Java-based multiplayer typing race application developed as a Microproject.
 
 The project demonstrates the practical use of Java in building a complete backend system using **Spring Boot**, along with database integration, authentication, REST APIs, game logic, and frontend communication.
 
